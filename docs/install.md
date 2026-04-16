@@ -9,12 +9,30 @@ platform from the repository `Releases` page.
 - OpenClaw must already be installed
 - the `openclaw` CLI must be available on your `PATH`
 - you should have completed OpenClaw onboarding, including daemon or gateway setup
+- macOS and Linux require Python 3 on `PATH` because the Unix lifecycle scripts use it for OpenClaw output filtering and config repair
 
 Recommended OpenClaw verification:
 
 ```sh
 openclaw --help
 openclaw onboard --install-daemon
+```
+
+If your macOS or Linux system has `python3` but no `python`, create a user-local
+shim or install your distribution's Python 3 alias package.
+
+User-local shim:
+
+```sh
+mkdir -p ~/bin
+ln -s "$(which python3)" ~/bin/python
+export PATH="$HOME/bin:$PATH"
+```
+
+Ubuntu/Debian alternative:
+
+```sh
+sudo apt install python-is-python3
 ```
 
 ## Download
@@ -33,11 +51,12 @@ in [`releases/0.1.0-preview/SHA256SUMS.txt`](../releases/0.1.0-preview/SHA256SUM
 From the extracted bundle root:
 
 ```sh
+openclaw gateway stop
 ./scripts/unix/install.sh
 ./scripts/unix/start.sh
+openclaw gateway restart
 ./scripts/unix/status.sh
 ./scripts/unix/doctor.sh
-openclaw gateway restart
 ```
 
 ## Windows
@@ -45,11 +64,12 @@ openclaw gateway restart
 From the extracted bundle root:
 
 ```powershell
+openclaw gateway stop
 .\scripts\windows\install.ps1
 .\scripts\windows\start.ps1
+openclaw gateway restart
 .\scripts\windows\status.ps1
 .\scripts\windows\doctor.ps1
-openclaw gateway restart
 ```
 
 ## What Install Does
@@ -60,6 +80,30 @@ openclaw gateway restart
 - creates local config, data, logs, and runtime directories;
 - installs the selected profile, defaulting to `balanced`;
 - generates a local sidecar token if one is not already set.
+
+## Script Entrypoints
+
+Windows bundle scripts:
+
+- `install.ps1`
+- `start.ps1`
+- `stop.ps1`
+- `status.ps1`
+- `doctor.ps1`
+- `disable-plugin.ps1`
+- `enable-plugin.ps1`
+- `uninstall.ps1`
+
+macOS and Linux bundle scripts:
+
+- `install.sh`
+- `start.sh`
+- `stop.sh`
+- `status.sh`
+- `doctor.sh`
+- `disable-plugin.sh`
+- `enable-plugin.sh`
+- `uninstall.sh`
 
 ## Rollback
 

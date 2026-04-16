@@ -20,6 +20,12 @@ The repository is proprietary. Use is governed by:
 
 No. OpenClaw must already be installed.
 
+## Do I need SQLite, Docker, Maven, or Node to try the preview?
+
+No. End users should not need SQLite, Docker, Maven, or Node for the preview
+bundle. macOS and Linux users do need Python 3 on `PATH` for the Unix lifecycle
+scripts.
+
 ## Where should release archives live?
 
 Prefer GitHub `Releases` assets instead of committing large binary archives into the
