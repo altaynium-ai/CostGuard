@@ -1,3 +1,3 @@
 1cc681f462817afeba0f9d5198b0230920513d1a22f9d287b101e1b91b573e34  costguard-preview-macos-aarch64.tar.gz
-3d7c84a351d684dd7fdc4a7f8f51e9e6ff833e8a3cc425098e52927443226f6a  costguard-preview-linux-x64.tar.gz
+94e619cdda5d7440419c628d3322aa3d93281c020b67e9df63c9fcf77b91ff64  costguard-preview-linux-x64.tar.gz
 504072e42f79ed703fa48073ed27000cbc866948f09e55663f54eb1297caf837  costguard-preview-windows-x64.zip
